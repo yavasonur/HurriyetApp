@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,6 +30,7 @@ public class RvAdapter extends RecyclerView.Adapter <RvAdapter.MyViewHolder>{
 
     private Context context;
     private ArrayList<Article> mData;
+    private Animation animation;
 
     Db_Layer dbLayer;
 
@@ -87,14 +90,17 @@ public class RvAdapter extends RecyclerView.Adapter <RvAdapter.MyViewHolder>{
                 public void onClick(View view) {
 
                     int id = mData.get(0).getId();
+                    animation = AnimationUtils.loadAnimation(context,R.anim.expand_in);
 
                     if(dbLayer.FavoriteArticleFind(mData.get(position).getId())){
                         dbLayer.FavoriteArticleRemove(mData.get(position));
                         holder.imageFavorite.setImageResource(R.drawable.favorite_image);
+                        holder.imageFavorite.startAnimation(animation);
                     }
                     else{
                         dbLayer.FavoriteArticleAdd(mData.get(position));
                         holder.imageFavorite.setImageResource(R.drawable.favorite_image_select);
+                        holder.imageFavorite.startAnimation(animation);
                     }
 
                 }

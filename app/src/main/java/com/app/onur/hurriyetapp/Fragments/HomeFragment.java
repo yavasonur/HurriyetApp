@@ -105,7 +105,6 @@ public class HomeFragment extends Fragment {
         };
 
         requestQueue.add(stringRequest);
-        //VolleyApplication.getInstance().getRequestQueue().add(stringRequest);
 
         rvAdapter = new RvAdapter(getContext(),articleList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
