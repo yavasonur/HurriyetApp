@@ -1,4 +1,6 @@
 # HurriyetApp
 Hürriyet RestAPI kullanılarak yazılmış haber uygulaması. 
 
-<b>Kullanılan Kütüphaneler</b>
+<b>Screenshots</b>
+
+![image](https://imgflip.com/i/2o9jv0)
